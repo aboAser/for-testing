@@ -1,7 +1,7 @@
 let menu = document.querySelector(".header .menu i");
 let links = document.querySelectorAll(".header .menu ul li a");
+let images =["img/001.jpg" , "img/002.jpg" , "img/003.jpg" , "img/004.jpg" ,"img/about.jpg"]
 
-console.log(links)
 
 
 menu.onclick =function (){
@@ -23,3 +23,34 @@ links.forEach((link)=>{
         
     })
 })
+// =============== cont info =============
+let infoBtn = document.querySelector(".cont-btn");
+let ourInfo = document.querySelector(".cont .text .info");
+let ourHead = document.querySelector(".cont .text .head");
+
+infoBtn.onclick = function (){
+    ourInfo.classList.toggle("inOut");
+    ourHead.classList.toggle("toggled");
+    if (ourInfo.classList.contains("inOut")){
+        infoBtn.innerHTML = "Read Less";
+    }else {
+        infoBtn.innerHTML = "Read More";
+    }
+}
+
+
+// ============= about image change ==================
+
+let aboutImg = document.querySelector(".contImg");
+let counter = 0;
+
+// aboutImg.src = images[counter];
+
+setInterval(()=>{
+    counter++;
+    if(counter >= images.length){
+        counter = 0;
+    }
+    aboutImg.style.backgroundImage = `url(${images[counter]})`;
+    
+},5000)

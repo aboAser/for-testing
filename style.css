@@ -159,29 +159,172 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    text-transform: uppercase;
+    font-size: xx-large;
 }
-.about .cont{
+.about .container{
+    width: 80%;
+    height: calc(100% - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    border-radius: 25px;
+}
+.about .container .cont{
     width: 100%;
-    height: calc(100% - 80px);
+    height: 90%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    
 }
 .cont .img{
     width: 90%;
     height: 70%;
-    position: relative;
     display: flex;
     align-items: center;
+    position: relative;
 }
-.cont .img img{
+.cont .img .contImg{
+    background-image: url('img/about.jpg');
     height: 100%;
     width: 50%;
-    margin: 0 auto;
+    border-radius: 25px;
+    border: 6px solid #ff00cc;
+    padding: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+}
+.cont .img::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+    background-image:url("img/4.png") ;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    animation: rot 10s linear infinite;
+}
+.cont .img::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background-image:url("img/4.png") ;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    animation: rot2 8s linear infinite;
+}
+.cont .text {
+    width: 90%;
+    height: 30%;
+    position: relative;
+    border-radius: 25px;
+    border: 2px solid #ff00cc;
+    padding: 20px;
+    overflow-x: hidden;
+}
+.cont .text .head{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 90%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: .5s ease;
+    gap: 20px;
+    border-right: 2px solid transparent;
+}
+.cont .text .head.toggled {
+    left: 25%;
+    top: 50%;
+    transform: translateX(-50% , -25%);
+    border-right: 5px solid #ff00cc;
+}
 
+.cont .text .head h3{
+    color: #ff00cc;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.cont .text .head .cont-btn{
+    width: 150px;
+    height: 50px;
+    background: linear-gradient(to left, #ff00cc, #333399);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    cursor: pointer;
+    transition:.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont .text .head .cont-btn:hover{
+    color: #56c9ff;
+    background: linear-gradient(to right, #ff00cc, #333399);
+}
+.cont .text .info{
+    position: absolute;
+    top: 50%;
+    right: -100%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 90%;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: .5s ease;
+    color: #333399;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 600;
+}
+.cont .text .info.inOut{
+    right: -350px;
+    
+}
+@keyframes rot{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rot2{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
 }
 
 
@@ -268,6 +411,32 @@ body{
     }
     .hero .hero-text{
         width: 100%;
+    }
+    .about .container{
+        width: 90%;
+    }
+    .about .cont .img img{
+        width: 90%;
+    }
+    .cont .img::before{
+        display: none;
+    }
+    .cont .img::after{
+        display: none;
+    }
+    .cont .text .head h2{
+        font-size: 30px;
+    }
+}
+@media (max-width: 450px){
+    .about .title{
+        font-size: 20px ;
+    }
+    .about .cont .img{
+        height: 40%;
+    }
+    .about .cont .text {
+
     }
 }
 
